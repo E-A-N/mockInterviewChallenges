@@ -13,11 +13,11 @@ struct Stats {
 
 struct Pokemon {
     name: String,
-    species_index: i32,
+    species_index: usize,
     element_type: ElementTypes,
     level: i32,
     stats: Stats,
-    evolution_line: [(i32, String); 3]
+    evolution_line: [(i32, &'static str); 3]
 }
 
 fn main() {
@@ -33,9 +33,9 @@ fn main() {
             speed: 3,
         },
         evolution_line: [
-            (0, String::from("Pichu")),
-            (16, String::from("Pikachu")),
-            (32, String::from("Raichu")),
+            (0, "Pichu"),
+            (16, "Pikachu"),
+            (32, "Raichu"),
         ]
     };
     poke1.level = 1;
@@ -51,9 +51,9 @@ fn main() {
             speed: 3,
         },
         evolution_line: [
-            (0, String::from("Bulbasaur")),
-            (16, String::from("Ivysaur")),
-            (32, String::from("Venusaur")),
+            (0, "Bulbasaur"),
+            (16, "Ivysaur"),
+            (32, "Venusaur"),
         ]
     };
     poke2.level = 2;
@@ -71,13 +71,19 @@ fn level_up (subject_pokemon: &mut Pokemon) {
     subject_pokemon.stats.defense += 1;
     subject_pokemon.stats.speed += 1;
     
-    let species_index: usize = subject_pokemon.species_index as usize;
+    let species_index: usize = subject_pokemon.species_index;
     let next_species_index: usize = species_index + 1;
-    let evolution_line: &[(i32, String); 3] = &subject_pokemon.evolution_line;
+    let evolution_line: &[(i32, &'static str); 3] = &subject_pokemon.evolution_line;
     let can_evolve: bool = species_index + 1 < evolution_line.len()
         && subject_pokemon.level >= evolution_line[next_species_index].0;
 }
 
 fn evolution (subject_pokemon: &mut Pokemon){
-    let oldSpecies: &(i32, String) = subect_pokemon.evolution_line[sub] 
+    let species_index: usize = subject_pokemon.species_index;
+    let next_species_index: usize = species_index + 1;
+
+    let old_species: &'static str = subject_pokemon.evolution_line[species_index].1;
+    let next_species: &'static str = subject_pokemon.evolution_line[next_species_index].1;
+
+    
 }
