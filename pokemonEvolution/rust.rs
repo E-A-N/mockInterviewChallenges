@@ -21,7 +21,6 @@ struct Pokemon {
 }
 
 fn main() {
-    println!("Hello, world!");
     let mut poke1 = Pokemon {
         name: "Pichu",
         species_index: 0,
@@ -72,6 +71,8 @@ fn level_up (subject_pokemon: &mut Pokemon) {
     subject_pokemon.stats.defense += 1.0;
     subject_pokemon.stats.speed += 1.0;
     
+    println!("{} has leveled up to: {}!", subject_pokemon.name, subject_pokemon.level);
+    
     let species_index: usize = subject_pokemon.species_index;
     let next_species_index: usize = species_index + 1;
     let evolution_line: &[(i32, &'static str); 3] = &subject_pokemon.evolution_line;
@@ -96,4 +97,6 @@ fn evolution (subject_pokemon: &mut Pokemon){
     subject_pokemon.stats.attack *= 0.5;
     subject_pokemon.stats.defense *= 0.5;
     subject_pokemon.stats.speed *= 0.5;
+    
+    println!("{} evolved into: {}", old_species, next_species);
 }
