@@ -20,6 +20,7 @@ Bonus:
 	- Logic/Architecture for cancelling evolutions
 	- Delta mathematics
 	- Latency/Delta timing considerations
+	- Branching Evolutions (IE Eevee)
 */
 
 // Enum for Pokémon types
