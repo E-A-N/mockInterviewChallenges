@@ -19,7 +19,7 @@ Bonus:
 	- Implement items and evolution stones
 	- Logic/Architecture for cancelling evolutions
 	- Delta mathematics
-	- Latency/Delta timing considerations
+	- Latency/UX considerations
 	- Branching Evolutions (IE Eevee)
 */
 
